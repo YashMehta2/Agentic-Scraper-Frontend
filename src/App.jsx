@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Plus, Play, Loader2, CheckCircle2, XCircle, ExternalLink, List, Navigation, Trash2 } from 'lucide-react'
+import { Plus, Play, LoaderCircle, CircleCheckBig, CircleX, ExternalLink, List, Navigation, Trash } from 'lucide-react'
 import './App.css'
 
 function App() {
@@ -73,10 +73,10 @@ function App() {
 
     const getStatusIcon = (status) => {
         switch (status) {
-            case 'RUNNING': return <Loader2 className="animate-spin text-primary" size={20} />
-            case 'COMPLETED': return <CheckCircle2 className="text-success" size={20} />
-            case 'FAILED': return <XCircle className="text-danger" size={20} />
-            default: return <Loader2 className="text-text-muted" size={20} />
+            case 'RUNNING': return <LoaderCircle className="animate-spin text-primary" size={20} />
+            case 'COMPLETED': return <CircleCheckBig className="text-success" size={20} />
+            case 'FAILED': return <CircleX className="text-danger" size={20} />
+            default: return <LoaderCircle className="text-text-muted" size={20} />
         }
     }
 
@@ -114,7 +114,7 @@ function App() {
                             />
                         </div>
                         <button type="submit" className="btn-primary" disabled={loading}>
-                            {loading ? <Loader2 className="animate-spin" /> : <Play size={18} />}
+                            {loading ? <LoaderCircle className="animate-spin" /> : <Play size={18} />}
                             {loading ? 'Submitting...' : 'Launch Agent'}
                         </button>
                     </form>
@@ -128,7 +128,7 @@ function App() {
                         </div>
                         {jobs.length > 0 && (
                             <button onClick={handleDeleteAll} className="btn-clear" title="Clear All History">
-                                <Trash2 size={16} />
+                                <Trash size={16} />
                                 Clear All
                             </button>
                         )}
@@ -153,7 +153,7 @@ function App() {
                                                 className="btn-icon-danger" 
                                                 title="Delete Job"
                                             >
-                                                <Trash2 size={14} />
+                                                <Trash size={14} />
                                             </button>
                                         </div>
                                     </div>
